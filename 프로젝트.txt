@@ -1,0 +1,26 @@
+article
+제목
+내용
+시간
+공지여부
+유저 아디
+제목만 뜨게함
+ title = models.CharField(max_length=100)
+    body = models.TextField()
+    pub_date = models.DateTimeField('date published')
+    notice_or_not = models.BooleanField(null=True, blank=True)
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
+related_name은 User모델과 관계된 Article모델들을 엑세스 하게 해줌
+
+comment
+댓글 내용
+날짜
+게시글의 아이디
+body = models.TextField()
+    pub_date = models.DateTimeField('date published')
+    board_id = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comments')
+댓글만 보임
+
+User의 student_id는 charfield야.
+
+그거 runserver하면 오류남?
